@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * Implements hook_autoload_info()
+ */
+function translated_node_block_autoload_info() {
+	return array(
+		'TranslatedNodeBlock' => 'translated_node_block.block.inc'
+	);
+}
+
+/**
+ * Implements hook_block_info()
+ */
+function translated_node_block_block_info() {
+	return array(
+		'content' => array(
+			'info' => t('Existing content (translated)'),
+			'description' => t('Embed existing node contentas a block onto other pages, with translation if available'),
+			'class' => 'TranslatedNodeBlock'
+		)
+	);
+}

@@ -1,0 +1,7 @@
+name = Translated Node Block
+description = Extend the node module's block functionality to automatically select translated nodes
+backdrop = 1.x
+version = 1.0
+
+dependencies[] = node
+dependencies[] = translation
