@@ -4,7 +4,7 @@
  * Extend the NodeBlock class to find the appropriate translation of a node,
  * if available.
  *
- * NOTE: This is a bit of a hack, the swapNid() method doesn't account for the
+ * NOTE: This is a bit of a hack, the prepare() method doesn't account for the
  * possibility that settings['nid'] may be used after the title and content
  * have been loaded and could subsequently give erroneous results.
  */
@@ -16,17 +16,7 @@ class TranslatedNodeBlock extends NodeBlock {
 		return t('Existing content (translated)');
 	}
 
-	function getTitle() {
-		$this->swapNid();
-		return parent::getTitle();
-	}
-
-	function getContent() {
-		$this->swapNid();
-		return parent::getContent();
-	}
-
-	function swapNid() {
+	function prepare() {
 		$this->settings['nid'] = $this->findTranslation($this->settings['nid']);
 	}
 
