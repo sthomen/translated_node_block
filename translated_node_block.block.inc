@@ -10,8 +10,6 @@
  */
 
 class TranslatedNodeBlock extends NodeBlock {
-	protected $already_swapped = false;
-
 	function getAdminTitle() {
 		return t('Existing content (translated)');
 	}
@@ -22,9 +20,6 @@ class TranslatedNodeBlock extends NodeBlock {
 
 	function findTranslation($nid) {
 		global $language;
-
-		if ($this->already_swapped)
-			return $nid;
 
 		$node = node_load($nid);
 
